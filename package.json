@@ -1,0 +1,43 @@
+{
+  "name": "pg-password-util",
+  "version": "1.0.0",
+  "description": "Client-side encoding of PostgreSQL user passwords for use in CREATE USER and ALTER USER",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sehrope/node-pg-password-util.git"
+  },
+  "keywords": [
+    "pg",
+    "postgres",
+    "postgresql",
+    "password",
+    "scram",
+    "sasl"
+  ],
+  "author": "Sehrope Sarkuni <sehrope@jackdb.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sehrope/node-pg-password-util/issues"
+  },
+  "homepage": "https://github.com/sehrope/node-pg-password-util#readme",
+  "devDependencies": {
+    "@types/mocha": "^5.0.0",
+    "@types/node": "^12.20.55",
+    "@types/pg": "^8.10.9",
+    "@types/pg-format": "^1.0.5",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "c8": "^9.0.0",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "pg": "8.11.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "pg-format": "^1.0.4"
+  }
+}

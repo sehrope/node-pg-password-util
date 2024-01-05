@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+main () {
+    exec docker run \
+        ${DOCKER_OPTS:-} \
+        --rm \
+        --env POSTGRES_PASSWORD=dbpass \
+        --env POSTGRES_HOST_AUTH_METHOD=md5 \
+        --publish 5432:5432 \
+        postgres
+}
+
+main "$@"

@@ -1,0 +1,13 @@
+bin
+coverage
+.env
+.eslintrc.js
+examples
+.github/**
+Makefile
+.nyc_output
+scratch
+src
+test
+.travis.yml
+tsconfig.json
