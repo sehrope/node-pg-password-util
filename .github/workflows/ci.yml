@@ -7,6 +7,9 @@ on:
     paths-ignore:
       - 'docs/**'
       - '**/*.md'
+defaults:
+  run:
+    shell: bash -euo pipefail {0}
 
 jobs:
   lint:
@@ -18,17 +21,19 @@ jobs:
       run: make clean deps lint
 
   test:
-    name: Test - Node v${{ matrix.node_version }}
-    runs-on: ubuntu-latest
+    name: Test - ${{ matrix.os }} x Node v${{ matrix.node_version }}
     strategy:
       fail-fast: false
       matrix:
         node_version:
-          - '16'
-          - '18'
+          # Temp to speed up CI fix
+          #- '16'
+          #- '18'
           - '20'
-          - 'lts/*'
-          - 'latest'
+          #- 'lts/*'
+          #- 'latest'
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
     - name: Setup Node
@@ -36,6 +41,16 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
         cache: npm
+    - name: Setup docker (MacOS)
+      if: runner.os == 'macos'
+      run: |
+        brew install docker
+        colima start
+    - name: Show env
+      run: |
+        node --version
+        uname -a
+        docker --version
     - name: Compile
       run: make clean deps compile
     - name: Setup Postgres
@@ -43,7 +58,7 @@ jobs:
         DOCKER_OPTS: '--detach'
       run: |
         bin/postgres-server
-        for i in {1..10}
+        for i in {1..30}
         do
           if pg_isready -h 127.0.0.1
           then

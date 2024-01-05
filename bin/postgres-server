@@ -7,7 +7,7 @@ main () {
         --rm \
         --env POSTGRES_PASSWORD=dbpass \
         --env POSTGRES_HOST_AUTH_METHOD=md5 \
-        --publish 5432:5432 \
+        --publish 127.0.0.1:5432:5432 \
         postgres
 }
 
