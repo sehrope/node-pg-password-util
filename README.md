@@ -1,6 +1,6 @@
 # pg-password-util
 
-[![NPM](https://nodei.co/npm/pg-query-exec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pg-query-exec/)
+[![NPM](https://nodei.co/npm/pg-password-util.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pg-password-util/)
 
 # Overview
 Utility library for password encoding for PostgreSQL.
@@ -17,7 +17,7 @@ With the password encoded client side:
 ALTER USER app PASSWORD 'SCRAM-SHA-256$4096:M1A3zTFR9TzaX5NuvytilQ==$TZtMCtrZ8wkkZVkS7vursem77PsBqthl8GqkPohscJw=:POfEEJ9BOrm6upeAFKU3awWqMg+kKYXyPOG5E5tuhJc='
 ```
 
-That hashed value does not contain the plaintext of the password and matches how the PostgreSQL stores the value in `pg_shadow`.
+That hashed value does not contain the plaintext of the password and matches how PostgreSQL stores the value in `pg_shadow`.
 
 * [Install](#install)
 * [Usage](#usage)
