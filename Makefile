@@ -9,28 +9,28 @@ clean:
 	rm -rf lib node_modules coverage
 
 compile:
-	node_modules/.bin/tsc --declaration
+	./node_modules/.bin/tsc --declaration
 
 watch:
-	node_modules/.bin/tsc --watch --declaration
+	./node_modules/.bin/tsc --watch --declaration
 
 test:
-	node_modules/.bin/ts-mocha test/suite.ts --exit $(TEST_ARGS)
+	./node_modules/.bin/ts-mocha test/suite.ts --exit $(TEST_ARGS)
 
 clean-cov:
 	rm -rf coverage
 
 test-cov:
-	node_modules/.bin/c8 \
+	./node_modules/.bin/c8 \
 	  --require source-map-support/register \
 	  --require ts-node/register \
 	  --reporter=html \
 	  --reporter=lcov \
 	  --extension .ts \
-	  node_modules/.bin/ts-mocha --exit test/suite.ts
+	  ./node_modules/.bin/ts-mocha --exit test/suite.ts
 
 lint:
-	node_modules/.bin/eslint src
+	./node_modules/.bin/eslint src
 
 package: clean deps compile
 
